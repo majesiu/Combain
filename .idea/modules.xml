@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Combain.iml" filepath="$PROJECT_DIR$/.idea/modules/Combain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Combain_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Combain_main.iml" group="Combain" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Combain_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Combain_test.iml" group="Combain" />
+    </modules>
+  </component>
+</project>
