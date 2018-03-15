@@ -1,5 +1,8 @@
 package combainmanager.backend;
 
+/**
+ * Class modeling NoSQL record of table Zbiory
+ */
 public class Zbior {
     public String maszyna;
     public int ilosc;

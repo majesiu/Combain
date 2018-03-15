@@ -6,6 +6,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * Class representing station, that reads data from Cassandra and in response sends transport to handle
+ * grain deliveries from combine harvesters
+ */
 public class Station {
     private static final String PROPERTIES_FILENAME = "config.properties";
 
@@ -18,7 +22,7 @@ public class Station {
 
         Properties properties = new Properties();
         try {
-            properties.load(Combain.class.getClassLoader().getResourceAsStream(PROPERTIES_FILENAME));
+            properties.load(Combine.class.getClassLoader().getResourceAsStream(PROPERTIES_FILENAME));
 
             contactPoint = properties.getProperty("contact_point");
             keyspace = properties.getProperty("keyspace");
@@ -28,10 +32,10 @@ public class Station {
 
         BackendSession session = new BackendSession(contactPoint, keyspace);
 
-
+        //Deduplication mechanism that ensures no station sends it transport twice for same delivery
+        //Conflict resolution is solved via id of each station
         while(true){
             List<Interwencje> interwencje = session.selectInterwencje();
-//Zapewnienie braku duplikacji - wykrywamy czy operacja transportu była wykonana wiecej razy i jedna z nich zostawiamy
             interwencje.stream().filter(i -> i.stacja == id).forEach( inter -> {
                     interwencje.stream().filter(i2 -> i2.iteracja == inter.iteracja && i2.maszyna.equals(inter.maszyna)
                     && i2.typ.equals(inter.typ) && inter.stacja > i2.stacja).forEach(i -> {
@@ -63,6 +67,5 @@ public class Station {
             });
             Thread.sleep(50);
         }
-
     }
 }

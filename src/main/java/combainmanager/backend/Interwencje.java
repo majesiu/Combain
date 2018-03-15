@@ -1,5 +1,9 @@
 package combainmanager.backend;
 
+
+/**
+ * Class modeling NoSQL record of table Interwencje
+ */
 public class Interwencje {
     public int stacja;
     public String maszyna;

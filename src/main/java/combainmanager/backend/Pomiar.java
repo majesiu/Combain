@@ -1,5 +1,8 @@
 package combainmanager.backend;
 
+/**
+ * Class modeling NoSQL record of table Pomiary
+ */
 public class Pomiar {
     public String maszyna;
     public String czujnik;
