@@ -14,6 +14,12 @@ public class Combine {
 
 	private static final String PROPERTIES_FILENAME = "config.properties";
 
+    /**
+     * @param args String, int - combine name, combine capacity
+     * @throws IOException
+     * @throws BackendException
+     * @throws InterruptedException
+     */
 	public static void main(String[] args) throws IOException, BackendException, InterruptedException {
 		String contactPoint = null;
 		String keyspace = null;

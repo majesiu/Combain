@@ -13,6 +13,12 @@ import java.util.Properties;
 public class Station {
     private static final String PROPERTIES_FILENAME = "config.properties";
 
+    /**
+     * @param args int - station id
+     * @throws IOException
+     * @throws BackendException
+     * @throws InterruptedException
+     */
     public static void main(String[] args) throws IOException, BackendException, InterruptedException {
         String contactPoint = null;
         String keyspace = null;
